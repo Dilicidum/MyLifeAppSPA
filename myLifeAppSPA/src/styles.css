@@ -1,0 +1,15 @@
+.btn-light-mine{
+  box-sizing: border-box;
+  background: #fff; /* fallback color for old browsers */
+  background: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
+
+.btn-mine-whitesmoke{
+  color: whitesmoke;
+}
+
+
