@@ -1,12 +1,18 @@
 <div class="d-flex flex-column">
   <div class="d-flex p-3 justify-content-between">
-    <button type="button" class="btn btn-outline-dark mr-3 btn-lg flex-grow-1">Pomodoro</button>
-    <button type="button" class="btn btn-outline-dark  mr-3 ml-3 btn-lg flex-grow-1">Short break</button>
-    <button type="button" class="btn btn-outline-dark  ml-3 btn-lg flex-grow-1">Pomodoro</button>
+    <button type="button" class="btn btn-outline-dark mr-3 btn-lg flex-grow-1"
+      (click)="changeWorkType(ListType.Work)">Pomodoro</button>
+    <button type="button" class="btn btn-outline-dark  mr-3 ml-3 btn-lg flex-grow-1"
+      (click)="changeWorkType(ListType.ShortBreak)">Short
+      break</button>
+    <button type="button" class="btn btn-outline-dark  ml-3 btn-lg flex-grow-1"
+      (click)="changeWorkType(ListType.LongBreak)">Pomodoro</button>
   </div>
 
-  <div class="d-flex justify-content-center p-3 mt-4">
-    <h1>25:00 </h1>
+  <div class="d-flex justify-content-center p-3 mt-4" [ngSwitch]="currentWorkType">
+    <h1 *ngSwitchCase='ListType.Work'> 25 </h1>
+    <h1 *ngSwitchCase='ListType.ShortBreak'> 22 </h1>
+    <h1 *ngSwitchCase='ListType.LongBreak'> 11 </h1>
   </div>
 
   <div class="d-flex justify-content-center p-3 mt-3">
