@@ -1,0 +1,11 @@
+<div>
+  <div class="d-flex ">
+    <span class="display-2 font-weight-bold">{{minutes}} : {{seconds}}</span>
+  </div>
+  <div class="d-flex justify-content-center p-3 mt-3">
+    <button type="button" *ngIf='isStopped$ | async' (click)="ChangeTimerStatus(false)"
+      class="btn btn-outline-dark btn-block btn-lg ">Start</button>
+    <button type="button" *ngIf='!(isStopped$ | async)' (click)="ChangeTimerStatus(true)"
+      class="btn btn-outline-dark btn-block btn-lg ">Stop</button>
+  </div>
+</div>

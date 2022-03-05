@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { pomodoroSettings } from '../../models/pomodoroSettings';
 import { WorkType } from '../../models/workType';
 import { TimersettingsService } from '../../services/timersettings.service';
@@ -12,7 +13,8 @@ export class TimerCardComponent implements OnInit, OnDestroy {
   public ListType = WorkType;
   currentWorkType: WorkType;
   currentTimerSettings: pomodoroSettings;
-  subscription$ : any;
+  subscription$: Subscription;
+
   constructor(private timerSettingsService : TimersettingsService) { }
 
   ngOnInit(): void {

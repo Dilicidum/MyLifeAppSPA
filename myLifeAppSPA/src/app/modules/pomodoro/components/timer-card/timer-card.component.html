@@ -10,12 +10,11 @@
   </div>
 
   <div class="d-flex justify-content-center p-3 mt-4" [ngSwitch]="currentWorkType">
-    <h1 *ngSwitchCase='ListType.Work'> 25 </h1>
-    <h1 *ngSwitchCase='ListType.ShortBreak'> 22 </h1>
-    <h1 *ngSwitchCase='ListType.LongBreak'> 11 </h1>
-  </div>
-
-  <div class="d-flex justify-content-center p-3 mt-3">
-    <button type="button" class="btn btn-outline-dark btn-block btn-lg w-25">Start</button>
+    <timer-countdown *ngSwitchCase='ListType.Work' [timeLength]="this.currentTimerSettings.WorkLength">
+    </timer-countdown>
+    <timer-countdown *ngSwitchCase='ListType.ShortBreak' [timeLength]="this.currentTimerSettings.ShortBreakLength">
+    </timer-countdown>
+    <timer-countdown *ngSwitchCase='ListType.LongBreak' [timeLength]="this.currentTimerSettings.LongBreakLength">
+    </timer-countdown>
   </div>
 </div>

@@ -20,10 +20,15 @@ export class TimersettingsService {
       isCurrent: true,
       Name: 'casual Pomodoro'
     };
-
+    pomodoroSettings.WorkLength.setHours(0);
     pomodoroSettings.WorkLength.setMinutes(25);
-    pomodoroSettings.ShortBreakLength.setMinutes(5);
+    pomodoroSettings.WorkLength.setSeconds(0);
+    pomodoroSettings.ShortBreakLength.setMinutes(0);
+    pomodoroSettings.ShortBreakLength.setSeconds(10);
+    pomodoroSettings.ShortBreakLength.setHours(0);
     pomodoroSettings.LongBreakLength.setMinutes(15);
+    pomodoroSettings.LongBreakLength.setSeconds(0);
+    pomodoroSettings.LongBreakLength.setHours(0);
     return of(pomodoroSettings);
   }
 }
