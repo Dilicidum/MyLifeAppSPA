@@ -9,9 +9,9 @@ import { map, min, take, takeUntil, takeWhile } from 'rxjs/operators';
   templateUrl: './timer-countdown.component.html',
   styleUrls: ['./timer-countdown.component.css']
 })
-export class TimerCountdownComponent implements OnInit, OnDestroy {
-
+export class TimerCountdownComponent implements OnInit {
   @Input() timeLength: Date;
+  timeLengthTemp = new Date();
   timeLength$ = new BehaviorSubject<Date>(new Date());
   timeLeft$ = new BehaviorSubject<Date>(new Date());
   isStopped$ = new BehaviorSubject(true);
@@ -50,8 +50,12 @@ export class TimerCountdownComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-    this.timeLeft$.next(this.timeLength);
-    this.timeLength$.next(this.timeLength);
+    this.timeLengthTemp.setHours(this.timeLength.getHours());
+    this.timeLengthTemp.setMinutes(this.timeLength.getMinutes());
+    this.timeLengthTemp.setSeconds(this.timeLength.getSeconds());
+
+    this.timeLeft$.next(this.timeLengthTemp);
+    this.timeLength$.next(this.timeLengthTemp);
     this.InitTimer();
   }
 
@@ -79,12 +83,5 @@ export class TimerCountdownComponent implements OnInit, OnDestroy {
     date.setMinutes(minutes);
     date.setSeconds(seconds);
     return date;
-  }
-
-  ngOnDestroy(): void {
-    if (this.timerSubscription$) {
-      this.timerSubscription$.unsubscribe();
-    }
-
   }
 }
